@@ -9,100 +9,108 @@ import { TabsComponent } from './tabs.component';
 import { CarouselsComponent } from './carousels.component';
 import { CollapsesComponent } from './collapses.component';
 import { PaginationsComponent } from './paginations.component';
-import {PopoversComponent} from './popovers.component';
-import {ProgressComponent} from './progress.component';
-import {TooltipsComponent} from './tooltips.component';
+import { PopoversComponent } from './popovers.component';
+import { ProgressComponent } from './progress.component';
+import { TooltipsComponent } from './tooltips.component';
+import { ContactComponent } from './contact.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    data: {
-      title: 'Base'
-    },
-    children: [
-      {
-        path: 'cards',
-        component: CardsComponent,
+    {
+        path: '',
         data: {
-          title: 'Cards'
-        }
-      },
-      {
-        path: 'forms',
-        component: FormsComponent,
-        data: {
-          title: 'Forms'
-        }
-      },
-      {
-        path: 'switches',
-        component: SwitchesComponent,
-        data: {
-          title: 'Switches'
-        }
-      },
-      {
-        path: 'tables',
-        component: TablesComponent,
-        data: {
-          title: 'Tables'
-        }
-      },
-      {
-        path: 'tabs',
-        component: TabsComponent,
-        data: {
-          title: 'Tabs'
-        }
-      },
-      {
-        path: 'carousels',
-        component: CarouselsComponent,
-        data: {
-          title: 'Carousels'
-        }
-      },
-      {
-        path: 'collapses',
-        component: CollapsesComponent,
-        data: {
-          title: 'Collapses'
-        }
-      },
-      {
-        path: 'paginations',
-        component: PaginationsComponent,
-        data: {
-          title: 'Pagination'
-        }
-      },
-      {
-        path: 'popovers',
-        component: PopoversComponent,
-        data: {
-          title: 'Popover'
-        }
-      },
-      {
-        path: 'progress',
-        component: ProgressComponent,
-        data: {
-          title: 'Progress'
-        }
-      },
-      {
-        path: 'tooltips',
-        component: TooltipsComponent,
-        data: {
-          title: 'Tooltips'
-        }
-      }
-    ]
-  }
+            title: 'Base'
+        },
+        children: [
+            {
+                path: 'cards',
+                component: CardsComponent,
+                data: {
+                    title: 'Cards'
+                }
+            },
+            {
+                path: 'forms',
+                component: FormsComponent,
+                data: {
+                    title: 'Forms'
+                }
+            },
+            {
+                path: 'switches',
+                component: SwitchesComponent,
+                data: {
+                    title: 'Switches'
+                }
+            },
+            {
+                path: 'tables',
+                component: TablesComponent,
+                data: {
+                    title: 'Tables'
+                }
+            },
+            {
+                path: 'tabs',
+                component: TabsComponent,
+                data: {
+                    title: 'Tabs'
+                }
+            },
+            {
+                path: 'carousels',
+                component: CarouselsComponent,
+                data: {
+                    title: 'Carousels'
+                }
+            },
+            {
+                path: 'collapses',
+                component: CollapsesComponent,
+                data: {
+                    title: 'Collapses'
+                }
+            },
+            {
+                path: 'paginations',
+                component: PaginationsComponent,
+                data: {
+                    title: 'Pagination'
+                }
+            },
+            {
+                path: 'popovers',
+                component: PopoversComponent,
+                data: {
+                    title: 'Popover'
+                }
+            },
+            {
+                path: 'progress',
+                component: ProgressComponent,
+                data: {
+                    title: 'Progress'
+                }
+            },
+            {
+                path: 'tooltips',
+                component: TooltipsComponent,
+                data: {
+                    title: 'Tooltips'
+                }
+            },
+            {
+                path: 'contact',
+                component: ContactComponent,
+                data: {
+                    title: 'Contacts'
+                }
+            }
+        ]
+    }
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule]
 })
-export class BaseRoutingModule {}
+export class BaseRoutingModule { }

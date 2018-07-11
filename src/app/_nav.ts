@@ -85,6 +85,11 @@ export const navItems = [
         name: 'Tooltips',
         url: '/base/tooltips',
         icon: 'icon-puzzle'
+      },
+      {
+        name: 'Contacts',
+        url: '/base/contact',
+        icon: 'icon-puzzle'
       }
     ]
   },

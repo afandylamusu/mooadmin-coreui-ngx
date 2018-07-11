@@ -46,6 +46,8 @@ import { TooltipsComponent } from './tooltips.component';
 // Components Routing
 import { BaseRoutingModule } from './base-routing.module';
 
+import { ContactComponent } from './contact.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -71,7 +73,8 @@ import { BaseRoutingModule } from './base-routing.module';
     PaginationsComponent,
     PopoversComponent,
     ProgressComponent,
-    TooltipsComponent
+    TooltipsComponent,
+    ContactComponent
   ]
 })
 export class BaseModule { }
