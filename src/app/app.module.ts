@@ -33,6 +33,9 @@ import {
     AppSidebarModule,
 } from '@coreui/angular';
 
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+
 // Import routing module
 import { AppRoutingModule } from './app.routing';
 
@@ -54,7 +57,9 @@ import { ApiConfig } from '../lib/active-record';
         PerfectScrollbarModule,
         BsDropdownModule.forRoot(),
         TabsModule.forRoot(),
-        ChartsModule
+        ChartsModule,
+        HttpClientModule,
+        HttpModule
     ],
     declarations: [
         AppComponent,
@@ -67,7 +72,8 @@ import { ApiConfig } from '../lib/active-record';
     providers: [{
         provide: LocationStrategy,
         useClass: HashLocationStrategy
-    }, {
+    },
+    {
         provide: ApiConfig,
         useValue: new ApiConfig({
             urlAPI: 'http://localhost:3456/api/'
