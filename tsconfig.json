@@ -1,9 +1,11 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./dist/out-tsc",
+    "baseUrl": "",
+    "module": "es2015",
+    "outDir": "./build",
     "sourceMap": true,
-    "declaration": false,
+    "declaration": true,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -14,6 +16,23 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "noImplicitAny": false,
+    "skipLibCheck": true
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "e2e",
+    "**/*.ngfactory.ts",
+    "**/*.shim.ts"
+  ],
+  "awesomeTypescriptLoaderOptions": {
+    "forkChecker": true,
+    "useWebpackText": true
+  },
+  "angularCompilerOptions": {
+    "genDir": ".",
+    "entryModule": "src/app/app.module#AppModule"
   }
 }
