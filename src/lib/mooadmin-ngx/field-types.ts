@@ -7,13 +7,13 @@ export interface Field {
     required: boolean;
 }
 
-export interface TextField extends Field {
+export interface StringField extends Field {
     placeholder: string;
 }
 
 
 export class Fields {
-    static textField(c: TextField): TextField {
+    static textField(c: StringField): StringField {
         return c;
     }
 }

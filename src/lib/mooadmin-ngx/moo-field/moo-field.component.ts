@@ -9,7 +9,7 @@ import { Field } from '../field-types';
   styleUrls: ['./moo-field.component.scss']
 })
 export class MooFieldComponent implements OnInit {
-  fieldSchema: any;
+  config: any;
 
   // tslint:disable-next-line:no-input-rename
   @Input('name')
@@ -20,7 +20,7 @@ export class MooFieldComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.fieldSchema = this.form.modelSchema[this.name];
+    this.config = this.form.modelSchema[this.name];
   }
 
 

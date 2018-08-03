@@ -3,8 +3,7 @@ import { Http } from '@angular/http';
 
 import { ActiveRecord, ApiConfig } from '../lib/mooadmin-ngx/active-record';
 import { Contact } from './contact';
-import { Field, Fields } from '../lib/mooadmin-ngx/field-types';
-import { Dictionary } from '../lib/mooadmin-ngx/dictionary';
+import { Fields } from '../lib/mooadmin-ngx/field-types';
 
 @Injectable()
 export class ContactService extends ActiveRecord<Contact> {

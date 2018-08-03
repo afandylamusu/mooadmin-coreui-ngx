@@ -8,6 +8,7 @@ import { MooFieldComponent } from './moo-field/moo-field.component';
 import { MooVlistComponent } from './moo-vlist/moo-vlist.component';
 import { MooVtableComponent } from './moo-vtable/moo-vtable.component';
 import { MooVchartComponent } from './moo-vchart/moo-vchart.component';
+import { MooFieldStringComponent } from './moo-field/moo-field-string.component';
 
 @NgModule({
     imports: [
@@ -21,7 +22,8 @@ import { MooVchartComponent } from './moo-vchart/moo-vchart.component';
         MooFieldComponent,
         MooVlistComponent,
         MooVtableComponent,
-        MooVchartComponent
+        MooVchartComponent,
+        MooFieldStringComponent
     ],
     exports: [
         HttpClientModule,

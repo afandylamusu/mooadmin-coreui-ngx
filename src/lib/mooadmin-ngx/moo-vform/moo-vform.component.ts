@@ -21,6 +21,13 @@ export class MooVformComponent implements OnInit {
         this.modelSchema = this.service.modelSchema;
     }
 
+    // tslint:disable-next-line:use-life-cycle-interface
+    ngAfterViewInit() {
+        // Called after ngOnInit when the component's or directive's content has been initialized.
+        // Add 'implements AfterContentInit' to the class.
+
+    }
+
     onSubmit(f: NgForm) {
 
     }
