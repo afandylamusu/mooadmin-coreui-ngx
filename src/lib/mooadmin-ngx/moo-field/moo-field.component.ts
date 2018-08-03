@@ -10,13 +10,14 @@ import { Field } from '../field-types';
 export class MooFieldComponent implements OnInit {
   Form: MooVformComponent;
   FieldSchema: Field;
+  Name: string;
 
   constructor(name: string, form: MooVformComponent) { 
     this.Form = form;
-    this.FieldSchema = form.ModelSchema[name];
   }
 
   ngOnInit() {
+    this.FieldSchema = this.Form.ModelSchema[this.Name];
   }
 
 }
