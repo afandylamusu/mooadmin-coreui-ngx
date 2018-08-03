@@ -4,9 +4,16 @@ export interface Field {
     inputType: string;
     label: string;
     model: string;
-    require: boolean;
+    required: boolean;
 }
 
 export interface TextField extends Field {
     placeholder: string;
+}
+
+
+export class Fields {
+    static textField(c: TextField): TextField {
+        return c;
+    }
 }

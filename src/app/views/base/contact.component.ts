@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ContactService } from '../../../services/contact.service';
 import { Router } from '@angular/router';
 import { Contact } from '../../../services/contact';
+import { MooVformComponent } from '../../../lib/mooadmin-ngx/moo-vform/moo-vform.component';
 
 
 @Component({
@@ -18,13 +19,16 @@ export class ContactComponent implements OnInit {
     errorMessage: string;
     contacts: Contact[];
 
-    ngOnInit() { this.getContacts();  }
+    @ViewChild('form') form: MooVformComponent;
+
+
+    ngOnInit() { this.form.service = this._contactService; }
 
     getContacts() {
         this._contactService.findAll()
-        .then(
-            contacts => this.contacts = contacts
-        ).catch();
+            .then(
+                contacts => this.contacts = contacts
+            ).catch();
     }
 
 }

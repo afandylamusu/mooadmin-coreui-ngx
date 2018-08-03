@@ -47,6 +47,7 @@ import { TooltipsComponent } from './tooltips.component';
 import { BaseRoutingModule } from './base-routing.module';
 
 import { ContactComponent } from './contact.component';
+import { MooadminModule } from '../../../lib/mooadmin-ngx/mooadmin.module';
 
 @NgModule({
   imports: [
@@ -60,7 +61,8 @@ import { ContactComponent } from './contact.component';
     PaginationModule.forRoot(),
     PopoverModule.forRoot(),
     ProgressbarModule.forRoot(),
-    TooltipModule.forRoot()
+    TooltipModule.forRoot(),
+    MooadminModule
   ],
   declarations: [
     CardsComponent,

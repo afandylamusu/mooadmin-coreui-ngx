@@ -3,7 +3,9 @@ import { Response } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { Field } from './field-types';
+import { Dictionary } from './dictionary';
 
+// tslint:disable-next-line:no-empty-interface
 export interface Model {
 
 }
@@ -55,7 +57,7 @@ export class ApiConfig {
     }
 }
 export class ActiveRecord<T> {
-    public modelSchema: Array<Field>;
+    public modelSchema: Dictionary<Field> = {};
     public api_url: string;
 
     private _config: IBApiConfig;

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
@@ -14,8 +14,9 @@ import { MooFieldComponent } from './moo-field/moo-field.component';
   declarations: [
     MooVformComponent,
     MooFieldComponent
-  ]
+  ],
+  exports: [HttpClientModule, HttpModule, MooVformComponent, MooFieldComponent]
 })
-export class MooadminModule { 
+export class MooadminModule {
 
 }
