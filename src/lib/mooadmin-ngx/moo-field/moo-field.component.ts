@@ -9,15 +9,14 @@ import { Field } from '../field-types';
   styleUrls: ['./moo-field.component.scss']
 })
 export class MooFieldComponent implements OnInit {
-  form: MooVformComponent;
-  fieldSchema: Field;
+  fieldSchema: any;
 
   // tslint:disable-next-line:no-input-rename
   @Input('name')
   name: string;
 
-  constructor(form: MooVformComponent) {
-    this.form = form;
+  constructor(public form: MooVformComponent) {
+
   }
 
   ngOnInit() {

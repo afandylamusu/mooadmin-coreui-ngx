@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActiveRecord, Model } from '../active-record';
 import { Field } from '../field-types';
 import { Dictionary } from '../dictionary';
+import { NgForm } from '@angular/forms';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -18,6 +19,10 @@ export class MooVformComponent implements OnInit {
 
     ngOnInit() {
         this.modelSchema = this.service.modelSchema;
+    }
+
+    onSubmit(f: NgForm) {
+
     }
 
 }
