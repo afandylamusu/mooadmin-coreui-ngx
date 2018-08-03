@@ -2,6 +2,11 @@ import { Injectable } from '@angular/core';
 import { Response } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import { Field } from './field-types';
+
+export interface Model {
+
+}
 
 export interface MethodHttp {
     query: string;
@@ -10,11 +15,13 @@ export interface MethodHttp {
     delete: string;
     [method: string]: string;
 }
+
 export interface IBApiConfig {
     urlAPI: string;
     headers: any;
     methods: MethodHttp;
 }
+
 export class ApiConfig {
     config: any;
     urlAPI: string;
@@ -48,7 +55,9 @@ export class ApiConfig {
     }
 }
 export class ActiveRecord<T> {
+    public modelSchema: Array<Field>;
     public api_url: string;
+
     private _config: IBApiConfig;
     constructor(public options: ApiConfig, public httpService: any, protected table_name: string) {
         this._config = options.getConfig();
