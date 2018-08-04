@@ -46,7 +46,6 @@ import { TooltipsComponent } from './tooltips.component';
 // Components Routing
 import { BaseRoutingModule } from './base-routing.module';
 
-import { ContactComponent } from './contact.component';
 import { MooadminModule } from '../../../lib/mooadmin-ngx/mooadmin.module';
 
 @NgModule({
@@ -75,8 +74,7 @@ import { MooadminModule } from '../../../lib/mooadmin-ngx/mooadmin.module';
     PaginationsComponent,
     PopoversComponent,
     ProgressComponent,
-    TooltipsComponent,
-    ContactComponent
+    TooltipsComponent
   ]
 })
 export class BaseModule { }

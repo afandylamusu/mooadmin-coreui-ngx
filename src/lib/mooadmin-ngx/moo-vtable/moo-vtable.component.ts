@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-moo-vtable',
+  // tslint:disable-next-line:component-selector
+  selector: 'moo-vtable',
   templateUrl: './moo-vtable.component.html',
   styleUrls: ['./moo-vtable.component.scss']
 })

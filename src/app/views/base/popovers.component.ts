@@ -8,10 +8,10 @@ import {DomSanitizer} from '@angular/platform-browser';
 export class PopoversComponent {
 
   constructor(sanitizer: DomSanitizer) {
-    this.html = sanitizer.sanitize(SecurityContext.HTML, this.html)
+    this.html = sanitizer.sanitize(SecurityContext.HTML, this.html);
   }
 
-  title: string = 'Welcome word';
-  content: string = 'Vivamus sagittis lacus vel augue laoreet rutrum faucibus.';
-  html: string = `<span class="btn btn-warning">Never trust not sanitized <code>HTML</code>!!!</span>`;
+  title = 'Welcome word';
+  content = 'Vivamus sagittis lacus vel augue laoreet rutrum faucibus.';
+  html = `<span class="btn btn-warning">Never trust not sanitized <code>HTML</code>!!!</span>`;
 }

@@ -81,6 +81,10 @@ export const routes: Routes = [
       {
         path: 'widgets',
         loadChildren: './views/widgets/widgets.module#WidgetsModule'
+      },
+      {
+        path: 'mooadmin',
+        loadChildren: './views/mooadmin/moo-demo.module#MooDemoModule'
       }
     ]
   }

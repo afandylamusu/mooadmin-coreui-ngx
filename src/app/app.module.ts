@@ -33,9 +33,6 @@ import {
     AppSidebarModule,
 } from '@coreui/angular';
 
-import { HttpClientModule } from '@angular/common/http';
-import { HttpModule } from '@angular/http';
-
 // Import routing module
 import { AppRoutingModule } from './app.routing';
 
