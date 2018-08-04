@@ -10,10 +10,9 @@ import { Field } from '../field-types';
 })
 export class MooFieldComponent implements OnInit {
   config: any;
-
   // tslint:disable-next-line:no-input-rename
-  @Input('name')
-  name: string;
+  @Input('name') name: any;
+
 
   constructor(public form: MooVformComponent) {
 
