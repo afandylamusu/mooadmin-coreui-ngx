@@ -189,6 +189,10 @@ export const navItems = [
             name: 'Contact',
             url: '/mooadmin/contact',
             icon: 'icon-bell'
+        },{
+            name: 'Foods',
+            url: '/mooadmin/foods',
+            icon: 'icon-bell'
         }]
     },
     {

@@ -74,7 +74,7 @@ import { MooadminModule } from '../lib/mooadmin-ngx/mooadmin.module';
     {
         provide: ApiConfig,
         useValue: new ApiConfig({
-            urlAPI: 'http://localhost:3456/api/'
+            urlAPI: 'http://localhost:5000/api/v1.0/'
         })
     }],
     bootstrap: [AppComponent]
