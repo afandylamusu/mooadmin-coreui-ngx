@@ -21,9 +21,7 @@ export class FoodsComponent implements OnInit {
     getFoods() {
         this.foodService.findAll()
             .then(
-                (res: any) => {
-                    this.foods = res.value;
-                }
+                (res: any) => this.foods = res.value
             ).catch();
     }
 }
