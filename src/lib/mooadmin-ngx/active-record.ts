@@ -18,6 +18,13 @@ export interface MethodHttp {
     [method: string]: string;
 }
 
+export interface ODataQuery {
+    top: number;
+    skip: number;
+    filter: string;
+    expand: string;
+}
+
 export interface IBApiConfig {
     urlAPI: string;
     headers: any;
@@ -72,6 +79,14 @@ export class ActiveRecord<T> {
             .then((res: Response) => this.processData(res))
             .catch(this.handleError);
     }
+
+    findAllODataQuery(params: ODataQuery): Promise<T[]> {
+        return this.httpService[this._config.methods.query](this.api_url + this.generateParamODataQuery(params))
+            .toPromise()
+            .then((res: Response) => this.processData(res))
+            .catch(this.handleError);
+    }
+
     // Ex:[GET] /${table_name}/search?title=abc&page=1&sort=title
     search(data: any, api_search_name: string = ''): Promise<T[]> {
         return this.httpService[this._config.methods.query](this.api_url + '/' + api_search_name + this.generateParam(data))
@@ -130,6 +145,29 @@ export class ActiveRecord<T> {
         }
         return '?' + params_arr.join('&');
     }
+
+    protected generateParamODataQuery(query: ODataQuery): string {
+        const params_arr: Array<string> = [];
+
+        if (query.top != undefined) {
+            params_arr.push('$top=' + query.top);
+        }
+
+        if (query.skip != undefined) {
+            params_arr.push('$skip=' + query.skip);
+        }
+
+        if (query.expand != undefined) {
+            params_arr.push('$expand=' + query.expand);
+        }
+
+        if (query.filter != undefined) {
+            params_arr.push('$filter=' + query.filter);
+        }
+
+        return '?' + params_arr.join('&');
+    }
+
     protected processData(res: Response) {
         return <T>res.json();
     }

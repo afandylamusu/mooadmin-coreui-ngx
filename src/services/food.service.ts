@@ -6,19 +6,19 @@ import { Fields } from '../lib/mooadmin-ngx/field-types';
 
 @Injectable()
 export class FoodService extends ActiveRecord<Food> {
-  constructor(public options: ApiConfig, public http: Http) {
-    super(options, http, 'foods');
+    constructor(public options: ApiConfig, public http: Http) {
+        super(options, http, 'foods');
 
-    this.modelSchema['Name'] = Fields.textField({
-      type: 'input',
-      inputType: 'text',
-      label: 'Name',
-      model: 'name',
-      placeholder: 'Food Name',
-      required: true
-    });
-    
-  }
+        this.modelSchema['Name'] = Fields.textField({
+            type: 'input',
+            inputType: 'text',
+            label: 'Name',
+            model: 'name',
+            placeholder: 'Food Name',
+            required: true
+        });
 
- 
+    }
+
+
 }
