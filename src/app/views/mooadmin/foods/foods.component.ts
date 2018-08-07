@@ -25,8 +25,8 @@ export class FoodsComponent implements OnInit {
 
     getFoods() {
         this.foodService.findAll()
-            .then(
+            .subscribe(
                 (res: any) => this.foods = res.value
-            ).catch();
+            );
     }
 }

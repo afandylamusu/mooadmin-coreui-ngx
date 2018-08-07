@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Response } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
-import 'rxjs/add/operator/toPromise';
 import { Field } from './field-types';
 import { Dictionary } from './dictionary';
+import { Observable } from 'rxjs';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';  // debug
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/toPromise';
 
 // tslint:disable-next-line:no-empty-interface
 export interface Model {
@@ -73,32 +77,29 @@ export class ActiveRecord<T> {
         this.api_url = this._config.urlAPI + '' + table_name;
     }
     // Ex:[GET] /${table_name}?page=1&sort=title
-    findAll(params: any = { page: 1, sort: '' }): Promise<T[]> {
+    findAll(params: any = { page: 1, sort: '' }): Observable<T[]> {
         return this.httpService[this._config.methods.query](this.api_url + this.generateParam(params))
-            .toPromise()
-            .then((res: Response) => this.processData(res))
+            .map(res => this.processData(res))
             .catch(this.handleError);
+
     }
 
-    findAllODataQuery(params: ODataQuery): Promise<T[]> {
+    findAllODataQuery(params: ODataQuery): Observable<T[]> {
         return this.httpService[this._config.methods.query](this.api_url + this.generateParamODataQuery(params))
-            .toPromise()
-            .then((res: Response) => this.processData(res))
+            .map(res => this.processData(res))
             .catch(this.handleError);
     }
 
     // Ex:[GET] /${table_name}/search?title=abc&page=1&sort=title
-    search(data: any, api_search_name: string = ''): Promise<T[]> {
+    search(data: any, api_search_name: string = ''): Observable<T[]> {
         return this.httpService[this._config.methods.query](this.api_url + '/' + api_search_name + this.generateParam(data))
-            .toPromise()
-            .then((res: Response) => this.processData(res))
+            .map(res => this.processData(res))
             .catch(this.handleError);
     }
     // Ex:[GET] /${table_name}/${id}
-    find(id: any): Promise<T> {
+    find(id: any): Observable<T> {
         return this.httpService[this._config.methods.query](this.api_url + '/' + id)
-            .toPromise()
-            .then((res: Response) => this.processData(res))
+            .map(res => this.processData(res))
             .catch(this.handleError);
     }
     // Ex:[GET] /${table_name}/${id}

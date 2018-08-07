@@ -6,7 +6,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let data of dataSource">
+            <tr *ngFor="let data of (_dataSource$ | async)">
                 <td *ngFor="let col of columns">{{data[col.model]}}</td>
             </tr>
         </tbody>

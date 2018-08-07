@@ -4,6 +4,7 @@ import { Http } from '@angular/http';
 import { ActiveRecord, ApiConfig } from '../lib/mooadmin-ngx/active-record';
 import { Contact } from './contact';
 import { Fields } from '../lib/mooadmin-ngx/field-types';
+import { Observable } from '../../node_modules/rxjs';
 
 @Injectable()
 export class ContactService extends ActiveRecord<Contact> {

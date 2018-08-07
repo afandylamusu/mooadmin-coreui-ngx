@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { Contact } from '../../../../services/contact';
 import { MooVformComponent } from '../../../../lib/mooadmin-ngx/moo-vform/moo-vform.component';
 import { MooVtableComponent } from '../../../../lib/mooadmin-ngx/moo-vtable/moo-vtable.component';
-import { NgForm } from '../../../../../node_modules/@angular/forms';
+import { NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class ContactComponent implements OnInit {
     }
 
     errorMessage: string;
-    contacts: Contact[];
+    contacts$: Observable<Contact[]>;
 
     @ViewChild('form') form: MooVformComponent;
     @ViewChild('table') table: MooVtableComponent;
@@ -41,13 +42,9 @@ export class ContactComponent implements OnInit {
     }
 
     getContacts() {
-        this.contactService.findAll()
-            .then(
-                contacts => {
-                    this.contacts = contacts;
-                    this.table.load(this.contacts);
-                }
-            ).catch();
+        this.contacts$ = this.contactService.findAll();
+        this.table.setDataSource(this.contacts$);
+
     }
 
 }
