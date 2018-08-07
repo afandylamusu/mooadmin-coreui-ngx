@@ -6,6 +6,7 @@ import { MooVformComponent } from '../../../../lib/mooadmin-ngx/moo-vform/moo-vf
 import { MooVtableComponent } from '../../../../lib/mooadmin-ngx/moo-vtable/moo-vtable.component';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { MooVlistComponent } from '../../../../lib/mooadmin-ngx/moo-vlist/moo-vlist.component';
 
 
 @Component({
@@ -24,11 +25,12 @@ export class ContactComponent implements OnInit {
 
     @ViewChild('form') form: MooVformComponent;
     @ViewChild('table') table: MooVtableComponent;
-
+    @ViewChild('list') list: MooVlistComponent;
 
     ngOnInit() {
         this.form.modelSchema = this.contactService.modelSchema;
         this.table.setSchema(this.contactService.modelSchema);
+        this.list.setSchema(this.contactService.modelSchema);
     }
 
     ngAfterViewInit() {
@@ -44,7 +46,7 @@ export class ContactComponent implements OnInit {
     getContacts() {
         this.contacts$ = this.contactService.findAll();
         this.table.setDataSource(this.contacts$);
-
+        this.list.setDataSource(this.contacts$);
     }
 
 }
