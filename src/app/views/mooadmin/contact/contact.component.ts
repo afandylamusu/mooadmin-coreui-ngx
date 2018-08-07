@@ -3,6 +3,7 @@ import { ContactService } from '../../../../services/contact.service';
 import { Router } from '@angular/router';
 import { Contact } from '../../../../services/contact';
 import { MooVformComponent } from '../../../../lib/mooadmin-ngx/moo-vform/moo-vform.component';
+import { MooVtableComponent } from '../../../../lib/mooadmin-ngx/moo-vtable/moo-vtable.component';
 
 
 @Component({
@@ -20,14 +21,27 @@ export class ContactComponent implements OnInit {
     contacts: Contact[];
 
     @ViewChild('form') form: MooVformComponent;
+    @ViewChild('table') table: MooVtableComponent;
 
 
-    ngOnInit() { this.form.service = this.contactService; }
+    ngOnInit() {
+        this.form.modelSchema = this.contactService.modelSchema;
+        this.table.setSchema(this.contactService.modelSchema);
+    }
+
+    ngAfterViewInit() {
+        //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+        //Add 'implements AfterViewInit' to the class.
+        this.getContacts();
+    }
 
     getContacts() {
         this.contactService.findAll()
             .then(
-                contacts => this.contacts = contacts
+                contacts => {
+                    this.contacts = contacts;
+                    this.table.load(this.contacts);
+                }
             ).catch();
     }
 

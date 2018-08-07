@@ -7,7 +7,10 @@ import { StringField } from '../field-types';
     // tslint:disable-next-line:component-selector
     selector: 'moo-field-string',
     template: `
-        <input type="text" name="{{name}}" placeholder="{{config.placeholder}}" />
+        <ng-template>
+            <label for="{{name}}">{{config.label}}</label>
+            <input type="text" name="{{name}}" placeholder="{{config.placeholder}}" />
+        </ng-template>
     `
 })
 export class MooFieldStringComponent implements OnInit {

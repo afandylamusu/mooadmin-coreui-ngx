@@ -10,7 +10,6 @@ export class FoodService extends ActiveRecord<Food> {
         super(options, http, 'foods');
 
         this.modelSchema['Name'] = Fields.textField({
-            type: 'input',
             inputType: 'text',
             label: 'Name',
             model: 'name',

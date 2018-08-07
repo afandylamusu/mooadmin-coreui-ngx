@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FoodService } from '../../../../services/food.service';
 import { Food } from '../../../../services/food';
+import { MooVformComponent } from '../../../../lib/mooadmin-ngx/moo-vform/moo-vform.component';
 
 @Component({
     selector: 'app-foods',
@@ -11,10 +12,14 @@ import { Food } from '../../../../services/food';
 export class FoodsComponent implements OnInit {
     foods: Food[];
 
+    @ViewChild('form') form: MooVformComponent;
+
+
     constructor(private foodService: FoodService) { }
 
     ngOnInit() {
         this.getFoods();
+        this.form.modelSchema = this.foodService.modelSchema;
     }
 
 

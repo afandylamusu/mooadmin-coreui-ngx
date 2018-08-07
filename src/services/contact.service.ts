@@ -10,12 +10,25 @@ export class ContactService extends ActiveRecord<Contact> {
     constructor(public options: ApiConfig, public http: Http) {
         super(options, http, 'contacts');
 
-        this.modelSchema['Name'] = Fields.textField({
-            type: 'input',
+        this.modelSchema['id'] = Fields.hiddenField({
+            inputType: 'hidden',
+            model: 'id',
+            required: true
+        });
+
+        this.modelSchema['name'] = Fields.textField({
             inputType: 'text',
             label: 'Name',
             model: 'name',
             placeholder: 'ini place holder',
+            required: true
+        });
+
+        this.modelSchema['number'] = Fields.textField({
+            inputType: 'number',
+            label: 'Number',
+            model: 'number',
+            placeholder: 'ini number',
             required: true
         });
     }
