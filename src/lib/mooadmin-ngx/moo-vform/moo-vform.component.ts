@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActiveRecord, Model } from '../active-record';
 import { Field } from '../field-types';
 import { Dictionary } from '../dictionary';
@@ -13,6 +13,8 @@ import { NgForm } from '@angular/forms';
 export class MooVformComponent implements OnInit {
     modelSchema: Dictionary<Field>;
 
+    @Input('onSubmit') onSubmit: any;
+
     constructor() {
     }
 
@@ -26,8 +28,10 @@ export class MooVformComponent implements OnInit {
 
     }
 
-    onSubmit(f: NgForm) {
+    formSubmit(f: NgForm) {
+        // validate
 
+        this.onSubmit(f);
     }
 
 }

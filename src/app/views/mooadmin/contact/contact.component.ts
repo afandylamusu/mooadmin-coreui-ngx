@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Contact } from '../../../../services/contact';
 import { MooVformComponent } from '../../../../lib/mooadmin-ngx/moo-vform/moo-vform.component';
 import { MooVtableComponent } from '../../../../lib/mooadmin-ngx/moo-vtable/moo-vtable.component';
+import { NgForm } from '../../../../../node_modules/@angular/forms';
 
 
 @Component({
@@ -33,6 +34,10 @@ export class ContactComponent implements OnInit {
         //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
         //Add 'implements AfterViewInit' to the class.
         this.getContacts();
+    }
+
+    SubmitForm(f: NgForm){
+
     }
 
     getContacts() {
