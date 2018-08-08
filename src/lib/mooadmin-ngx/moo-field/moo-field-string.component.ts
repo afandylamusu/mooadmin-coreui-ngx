@@ -7,23 +7,21 @@ import { StringField } from '../field-types';
     // tslint:disable-next-line:component-selector
     selector: 'moo-field-string',
     template: `
-        <ng-template>
-            <label for="{{name}}">{{config.label}}</label>
-            <input type="text" name="{{name}}" placeholder="{{config.placeholder}}" />
-        </ng-template>
+            <label for="{{_config.model}}">{{_config.label}}</label>
+            <input type="text" name="{{_config.model}}" placeholder="{{_config.placeholder}}" />
     `
 })
 export class MooFieldStringComponent implements OnInit {
 
     // tslint:disable-next-line:no-input-rename
-    @Input('name')
-    name: string;
+    // @Input('name')
+    // name: string;
 
     // tslint:disable-next-line:no-input-rename
-    @Input('config')
-    config: StringField;
+    private _config: StringField;
 
-    constructor(public field: MooFieldComponent) { }
+    constructor(public field: MooFieldComponent) {  }
     ngOnInit() {
+        this._config = this.field.config;
     }
 }

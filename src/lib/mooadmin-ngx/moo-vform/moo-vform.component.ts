@@ -13,12 +13,14 @@ import { NgForm } from '@angular/forms';
 export class MooVformComponent implements OnInit {
     modelSchema: Dictionary<Field>;
 
+    // tslint:disable-next-line:no-input-rename
     @Input('onSubmit') onSubmit: any;
 
     constructor() {
     }
 
     ngOnInit() {
+
     }
 
     // tslint:disable-next-line:use-life-cycle-interface
