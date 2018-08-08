@@ -7,7 +7,7 @@
         </div>
         <div class="card-body">
           <p>
-            <li *ngFor="let food of foods; index as i">{{food.Name}}</li>
+            <li *ngFor="let food of (foods$ | async); index as i">{{food.Name}}</li>
           </p>
 
           <moo-vform #form>

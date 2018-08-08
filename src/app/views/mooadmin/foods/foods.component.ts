@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FoodService } from '../../../../services/food.service';
 import { Food } from '../../../../services/food';
 import { MooVformComponent } from '../../../../lib/mooadmin-ngx/moo-vform/moo-vform.component';
+import { Observable } from 'rxjs';
+import 'rxjs/add/operator/map';
 
 @Component({
     selector: 'app-foods',
@@ -10,7 +12,7 @@ import { MooVformComponent } from '../../../../lib/mooadmin-ngx/moo-vform/moo-vf
     providers: [FoodService]
 })
 export class FoodsComponent implements OnInit {
-    foods: Food[];
+    foods$: Observable<Food[]>;
 
     @ViewChild('form') form: MooVformComponent;
 
@@ -24,9 +26,6 @@ export class FoodsComponent implements OnInit {
 
 
     getFoods() {
-        this.foodService.findAll()
-            .subscribe(
-                (res: any) => this.foods = res.value
-            );
+        this.foods$ = this.foodService.findAll();
     }
 }

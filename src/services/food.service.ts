@@ -9,6 +9,8 @@ export class FoodService extends ActiveRecord<Food> {
     constructor(public options: ApiConfig, public http: Http) {
         super(options, http, 'foods');
 
+        this.api_url = 'http://localhost:5000/api/v1.0/Foods';
+
         this.modelSchema['Name'] = Fields.textField({
             inputType: 'text',
             label: 'Name',
@@ -17,6 +19,10 @@ export class FoodService extends ActiveRecord<Food> {
             required: true
         });
 
+    }
+
+    protected processData(res) {
+        return <Food[]>(res.json().value);
     }
 
 

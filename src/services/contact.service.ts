@@ -11,13 +11,15 @@ export class ContactService extends ActiveRecord<Contact> {
     constructor(public options: ApiConfig, public http: Http) {
         super(options, http, 'contacts');
 
+        this.api_url = 'http://11.11.7.111:8080/api/contacts';
+
         this.modelSchema['id'] = Fields.hiddenField({
             inputType: 'hidden',
             model: 'id',
             required: true
         });
 
-        this.modelSchema['name'] = Fields.textField({
+        this.modelSchema['Name'] = Fields.textField({
             inputType: 'text',
             label: 'Name',
             model: 'name',
@@ -25,7 +27,7 @@ export class ContactService extends ActiveRecord<Contact> {
             required: true
         });
 
-        this.modelSchema['number'] = Fields.textField({
+        this.modelSchema['Number'] = Fields.textField({
             inputType: 'number',
             label: 'Number',
             model: 'number',
