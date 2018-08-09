@@ -18,8 +18,11 @@
                     <i class="fa fa-align-justify"></i> Form
                 </div>
                 <div class="card-body">
-                    <moo-vform #form onSubmit="SubmitForm(form=NgForm)">
+                    <moo-vform #form>
                         <moo-field name="Name"></moo-field>
+                        <moo-field name="Number"></moo-field>
+
+                        <button type="submit">Submit</button>
                     </moo-vform>
                 </div>
             </div>

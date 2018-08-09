@@ -9,6 +9,7 @@ import { Field } from '../field-types';
   styleUrls: ['./moo-vlist.component.scss']
 })
 export class MooVlistComponent implements OnInit {
+
   setDataSource(data: Observable<any>) {
     this._dataSource$ = data;
   }
@@ -25,7 +26,7 @@ export class MooVlistComponent implements OnInit {
 
   private _dataSource$: Observable<any>;
   private _modelSchema: Dictionary<Field>;
-  
+
   constructor() { }
 
   ngOnInit() {

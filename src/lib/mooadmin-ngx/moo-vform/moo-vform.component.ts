@@ -16,13 +16,12 @@ export class MooVformComponent implements OnInit {
     // tslint:disable-next-line:no-input-rename
     @Input('onSubmit') onSubmit: any;
 
-    @ViewChild(NgForm) ngForm: NgForm;
+    @ViewChild('f') ngForm: NgForm;
 
     constructor() {
     }
 
     ngOnInit() {
-
     }
 
     // tslint:disable-next-line:use-life-cycle-interface
@@ -35,7 +34,7 @@ export class MooVformComponent implements OnInit {
     formSubmit(f: NgForm) {
         // validate
 
-        this.onSubmit(f);
+        // this.onSubmit(f);
     }
 
 }

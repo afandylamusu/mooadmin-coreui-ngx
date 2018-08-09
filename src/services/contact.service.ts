@@ -28,7 +28,7 @@ export class ContactService extends ActiveRecord<Contact> {
         });
 
         this.modelSchema['Number'] = Fields.textField({
-            inputType: 'number',
+            inputType: 'text',
             label: 'Number',
             model: 'number',
             placeholder: 'ini number',

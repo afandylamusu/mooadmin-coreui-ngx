@@ -1,6 +1,7 @@
-import { OnInit, Component, Input } from '@angular/core';
+import { OnInit, Component, Input, ViewChild } from '@angular/core';
 import { MooFieldComponent } from './moo-field.component';
 import { StringField } from '../field-types';
+import { NgModel, NgForm } from '@angular/forms';
 
 
 @Component({
@@ -11,32 +12,30 @@ import { StringField } from '../field-types';
 export class MooFieldStringComponent implements OnInit {
 
     // tslint:disable-next-line:no-input-rename
-    // @Input('name')
-    // name: string;
+    @ViewChild(NgModel)
+    model: NgModel;
+
+    value: string;
 
     // tslint:disable-next-line:no-input-rename
     private _config: StringField;
-    private _requiredStr: string;
 
-    private _placeholder: string;
 
     private _hasError: boolean;
-    private _errorMessage: {
+    private _errorMessage : any = {
         required: 'String input is required',
         minlength: 'Has min length'
     };
 
-    constructor(public field: MooFieldComponent) {  }
+    constructor(public field: MooFieldComponent) { }
     ngOnInit() {
         this._config = this.field.config as StringField;
         this._hasError = false;
+    }
 
-        if (this._config.required)
-            this._requiredStr = 'required';
-
-        if (this._config.placeholder !== undefined)
-            this._placeholder = this._config.placeholder;
-
-
+    ngAfterViewInit() {
+        //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+        //Add 'implements AfterViewInit' to the class.
+        this.field.form.ngForm.addControl(this.model);
     }
 }
