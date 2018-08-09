@@ -2,7 +2,9 @@
   <p>
     moo-vlist works!
   </p>
-  <ng-content>
-    
-  </ng-content>
+  <ul>
+    <li *ngFor="let data of (_dataSource$ | async)">
+
+      </li>
+  </ul>
 </div>
