@@ -24,15 +24,15 @@ export interface HiddenField extends Field {
 
 
 export class Fields {
-    static textField(c: StringField): StringField {
-        return c;
+    static textField(c: Partial<StringField>): StringField {
+        return c as StringField;
     }
 
-    static hiddenField(c: HiddenField): HiddenField {
-        return c;
+    static hiddenField(c: Partial<HiddenField>): HiddenField {
+        return c as HiddenField;
     }
 
-    static radioField(c: BooleanField): BooleanField {
-        return c;
+    static radioField(c: Partial<BooleanField>): BooleanField {
+        return c as BooleanField;
     }
 }

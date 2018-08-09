@@ -16,7 +16,6 @@ export class FoodService extends ActiveRecord<Food> {
             inputType: 'text',
             label: 'Name',
             model: 'name',
-            placeholder: 'Food Name',
             required: true
         });
 

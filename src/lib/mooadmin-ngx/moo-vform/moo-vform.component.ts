@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { ActiveRecord, Model } from '../active-record';
 import { Field } from '../field-types';
 import { Dictionary } from '../dictionary';
@@ -15,6 +15,8 @@ export class MooVformComponent implements OnInit {
 
     // tslint:disable-next-line:no-input-rename
     @Input('onSubmit') onSubmit: any;
+
+    @ViewChild(NgForm) ngForm: NgForm;
 
     constructor() {
     }
