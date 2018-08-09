@@ -11,12 +11,13 @@ import { Field } from '../field-types';
 export class MooFieldComponent implements OnInit {
     config: Field;
 
+    // tslint:disable-next-line:no-input-rename
     @Input('name') name: string;
 
     private _stringFieldInputTypes: string[] = ['text', 'number', 'textarea', 'email', 'password'];
 
     get isStringField(): boolean {
-        return this._stringFieldInputTypes.findIndex(x => x == this.config.inputType) >= 0;
+        return this._stringFieldInputTypes.findIndex(x => x === this.config.inputType) >= 0;
     }
 
     constructor(public form: MooVformComponent) {

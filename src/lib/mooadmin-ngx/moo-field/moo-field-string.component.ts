@@ -22,13 +22,13 @@ export class MooFieldStringComponent implements OnInit {
 
 
     private _hasError: boolean;
-    private _errorMessage : any = {
+    private _errorMessage: any = {
         required: 'String input is required',
         minlength: 'Has min length'
     };
 
-    get isTextArea() : boolean {
-        return this._config.inputType == 'textarea';
+    get isTextArea(): boolean {
+        return this._config.inputType === 'textarea';
     }
 
     constructor(public field: MooFieldComponent) { }
@@ -37,9 +37,10 @@ export class MooFieldStringComponent implements OnInit {
         this._hasError = false;
     }
 
+    // tslint:disable-next-line:use-life-cycle-interface
     ngAfterViewInit() {
-        //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
-        //Add 'implements AfterViewInit' to the class.
+        // Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+        // Add 'implements AfterViewInit' to the class.
         this.field.form.ngForm.addControl(this.model);
     }
 }

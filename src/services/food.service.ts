@@ -22,7 +22,7 @@ export class FoodService extends ActiveRecord<Food> {
     }
 
     protected processData(res: any) {
-        let result : any = super.processData(res);
+        const result: any = super.processData(res);
         return result.value;
     }
 
