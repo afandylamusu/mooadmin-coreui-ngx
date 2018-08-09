@@ -1,6 +1,6 @@
 <label for="{{_config.model}}">{{_config.label}}</label>
-<input *ngIf="_config.inpuType !== 'textarea'" name="{{_config.model}}" type="{{_config.inputType}}"
-    placeholder={{_placeholder}} required [(ngModel)]="value" class="form-control"/>
+<input *ngIf="!isTextArea" name="{{_config.model}}" type="{{_config.inputType}}"
+    [placeholder]="_config.placeholder" [required]="_config.required" [minlength]="_config.minlength" [(ngModel)]="value" class="form-control"/>
 <div *ngIf="field.form.ngForm.submitted && model.invalid" class="invalid">
     <div *ngIf="model.errors.required">{{_errorMessage.required}}</div>
     <div *ngIf="model.errors.minlength">{{_errorMessage.minlength}}</div>

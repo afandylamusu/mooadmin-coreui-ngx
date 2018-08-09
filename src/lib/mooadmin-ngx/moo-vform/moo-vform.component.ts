@@ -16,7 +16,7 @@ export class MooVformComponent implements OnInit {
     // tslint:disable-next-line:no-input-rename
     @Input('onSubmit') onSubmit: any;
 
-    @ViewChild('f') ngForm: NgForm;
+    @ViewChild(NgForm) ngForm: NgForm;
 
     constructor() {
     }

@@ -27,6 +27,10 @@ export class MooFieldStringComponent implements OnInit {
         minlength: 'Has min length'
     };
 
+    get isTextArea() : boolean {
+        return this._config.inputType == 'textarea';
+    }
+
     constructor(public field: MooFieldComponent) { }
     ngOnInit() {
         this._config = this.field.config as StringField;

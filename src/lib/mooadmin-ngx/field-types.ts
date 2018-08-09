@@ -11,7 +11,8 @@ export interface Field {
 export interface StringField extends Field {
     placeholder: string;
     label: string;
-
+    minlength: number;
+    maxlength: number;
 }
 
 export interface BooleanField extends Field {

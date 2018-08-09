@@ -24,11 +24,12 @@ export class ContactService extends ActiveRecord<Contact> {
             label: 'Name',
             model: 'name',
             placeholder: 'ini place holder',
-            required: true
+            required: false,
+            minlength: 5
         });
 
         this.modelSchema['Number'] = Fields.textField({
-            inputType: 'text',
+            inputType: 'number',
             label: 'Number',
             model: 'number',
             placeholder: 'ini number',
