@@ -150,19 +150,19 @@ export class ActiveRecord<T> {
     protected generateParamODataQuery(query: ODataQuery): string {
         const params_arr: Array<string> = [];
 
-        if (query.top != undefined) {
+        if (query.top !== undefined) {
             params_arr.push('$top=' + query.top);
         }
 
-        if (query.skip != undefined) {
+        if (query.skip !== undefined) {
             params_arr.push('$skip=' + query.skip);
         }
 
-        if (query.expand != undefined) {
+        if (query.expand !== undefined) {
             params_arr.push('$expand=' + query.expand);
         }
 
-        if (query.filter != undefined) {
+        if (query.filter !== undefined) {
             params_arr.push('$filter=' + query.filter);
         }
 

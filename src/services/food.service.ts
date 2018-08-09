@@ -3,6 +3,7 @@ import { Food } from './food';
 import { ActiveRecord, ApiConfig } from '../lib/mooadmin-ngx/active-record';
 import { Http } from '@angular/http';
 import { Fields } from '../lib/mooadmin-ngx/field-types';
+import { baseDirectiveCreate } from '../../node_modules/@angular/core/src/render3/instructions';
 
 @Injectable()
 export class FoodService extends ActiveRecord<Food> {
@@ -21,8 +22,9 @@ export class FoodService extends ActiveRecord<Food> {
 
     }
 
-    protected processData(res) {
-        return <Food[]>(res.json().value);
+    protected processData(res: any) {
+        let result : any = super.processData(res);
+        return result.value;
     }
 
 

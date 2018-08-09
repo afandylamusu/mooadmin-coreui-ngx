@@ -22,6 +22,6 @@ export class MooFieldStringComponent implements OnInit {
 
     constructor(public field: MooFieldComponent) {  }
     ngOnInit() {
-        this._config = this.field.config;
+        this._config = this.field.config as StringField;
     }
 }
