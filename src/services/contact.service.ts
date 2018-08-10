@@ -25,15 +25,54 @@ export class ContactService extends ActiveRecord<Contact> {
             model: 'name',
             placeholder: 'ini place holder',
             required: false,
-            minlength: 5
+            //minlength: 5
+        });
+        
+        this.modelSchema['Feedback'] = Fields.textField({
+            inputType: 'textarea',
+            label: 'Feedback',
+            model: 'feedback',
+            row:2,
+            col:5,
+            placeholder: 'ini place holder',
+            required: false,
+          
         });
 
         this.modelSchema['Number'] = Fields.textField({
             inputType: 'number',
-            label: 'Number',
-            model: 'number',
+            label: 'Phone Number',
+            model: 'phone',
             placeholder: 'ini number',
-            required: true
+          //  required: true,
+          //  minlength: 10
+        });
+        
+        this.modelSchema['Address'] = Fields.textField({
+            inputType: 'text',
+            label: 'Address',
+            model: 'addres',
+            placeholder: 'ini place holder',
+            //required: true,
+            //minlength: 20
+        });
+
+        this.modelSchema['Password'] = Fields.textField({
+            inputType: 'password',
+            label: 'Password',
+            model: 'password',
+            placeholder: 'ini password',
+            //required: true,
+            //minlength:8
+        });
+        
+        this.modelSchema['Email'] = Fields.textField({
+            inputType: 'email',
+            label: 'Office Email ',
+            model: 'email',
+            placeholder: 'ini email',
+            //required: true,
+            //pattern:'[^@]+@[^@]+\.[a-zA-Z]'
         });
     }
 }

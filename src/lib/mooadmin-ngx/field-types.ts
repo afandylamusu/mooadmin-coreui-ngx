@@ -13,6 +13,9 @@ export interface StringField extends Field {
     label: string;
     minlength: number;
     maxlength: number;
+    pattern:string;
+    row:number;
+    col:number;
 }
 
 export interface BooleanField extends Field {

@@ -23,8 +23,9 @@ export class MooFieldStringComponent implements OnInit {
 
     private _hasError: boolean;
     private _errorMessage: any = {
-        required: 'String input is required',
-        minlength: 'Has min length'
+        required: 'Field is required',
+        minlength: 'Has min length',
+        emailPattern:'Not proper email'
     };
 
     get isTextArea(): boolean {

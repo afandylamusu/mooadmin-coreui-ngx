@@ -39,9 +39,21 @@ export class ContactComponent implements OnInit {
         this.getContacts();
     }
 
-    SubmitForm(f: NgForm){
-
+    public formSubmit(f: NgForm){
+        this.postContact({ id: null, name: f.value.name, phone: f.value.number });
+      window.location.reload();
     }
+
+    postContact(contact: Contact){
+        this.contactService.insert(contact).then(
+          res => 
+          {
+  
+          }
+       ).catch();
+       window.location.reload();
+      }
+  
 
     getContacts() {
         this.contacts$ = this.contactService.findAll();

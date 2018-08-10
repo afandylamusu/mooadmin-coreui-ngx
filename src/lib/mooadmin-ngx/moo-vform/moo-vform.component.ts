@@ -3,6 +3,8 @@ import { ActiveRecord, Model } from '../active-record';
 import { Field } from '../field-types';
 import { Dictionary } from '../dictionary';
 import { NgForm } from '@angular/forms';
+import { Contact } from '../../../services/contact';
+import { ContactService } from '../../../services/contact.service';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -18,7 +20,7 @@ export class MooVformComponent implements OnInit {
 
     @ViewChild(NgForm) ngForm: NgForm;
 
-    constructor() {
+    constructor(private contactService:ContactService) {
     }
 
     ngOnInit() {
@@ -31,10 +33,19 @@ export class MooVformComponent implements OnInit {
 
     }
 
-    formSubmit(f: NgForm) {
-        // validate
-
-        // this.onSubmit(f);
+    public formSubmit(f: NgForm){
+        this.postContact({ id: null, name: f.value.name, phone: f.value.number });
+      window.location.reload();
     }
+
+    postContact(contact: Contact){
+        this.contactService.insert(contact).then(
+          res => 
+          {
+  
+          }
+       ).catch();
+       window.location.reload();
+      }
 
 }
