@@ -1,7 +1,3 @@
 <div>
-    <ul>
-        <li *ngFor="let data of (_dataSource$ | async)">
-
-        </li>
-    </ul>
+  <ng-template ngFor let-data [ngForOf]="(_dataSource$ | async)" [ngForTemplate]="listTemplate"></ng-template>
 </div>
