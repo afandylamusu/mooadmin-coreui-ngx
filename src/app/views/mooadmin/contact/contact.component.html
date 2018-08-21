@@ -37,10 +37,11 @@
                     <i class="fa fa-align-justify"></i> Form
                 </div>
                 <div class="card-body">
+
                     <moo-vlist #list>
-                        <ng-template>
+                        <ng-template let-data>
                             <div>
-                                <span>{{data}}</span>
+                                {{data|json}}
                             </div>
                         </ng-template>
                     </moo-vlist>
