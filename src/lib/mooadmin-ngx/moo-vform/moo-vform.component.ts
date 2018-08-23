@@ -7,7 +7,7 @@ import { Contact } from '../../../services/contact';
 import { ContactService } from '../../../services/contact.service';
 
 @Component({
-    // tslint:disable-next-line:component-selector
+    // tslintisable-next-line:component-selector
     selector: 'moo-vform',
     templateUrl: './moo-vform.component.html',
     styleUrls: ['./moo-vform.component.scss'],
@@ -15,8 +15,9 @@ import { ContactService } from '../../../services/contact.service';
 export class MooVformComponent implements OnInit {
     modelSchema: Dictionary<Field>;
 
-    // tslint:disable-next-line:no-input-rename
-    @Input('onSubmit') onSubmit: any;
+    // tslintisable-next-line:no-input-rename
+    @Input() callback: Function;
+    
 
     @ViewChild(NgForm) ngForm: NgForm;
 
@@ -26,7 +27,7 @@ export class MooVformComponent implements OnInit {
     ngOnInit() {
     }
 
-    // tslint:disable-next-line:use-life-cycle-interface
+    // tslintisable-next-line:use-life-cycle-interface
     ngAfterViewInit() {
         // Called after ngOnInit when the component's or directive's content has been initialized.
         // Add 'implements AfterContentInit' to the class.
@@ -34,18 +35,16 @@ export class MooVformComponent implements OnInit {
     }
 
     public formSubmit(f: NgForm){
-        this.postContact({ id: null, name: f.value.name, phone: f.value.number });
-      window.location.reload();
+        this.callback(f);
     }
-
-    postContact(contact: Contact){
+    postContact(contact:Contact){
         this.contactService.insert(contact).then(
           res => 
           {
   
           }
        ).catch();
-       window.location.reload();
+       
       }
 
 }

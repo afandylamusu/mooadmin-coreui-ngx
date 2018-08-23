@@ -9,13 +9,15 @@ import { MooVlistComponent } from './moo-vlist/moo-vlist.component';
 import { MooVtableComponent } from './moo-vtable/moo-vtable.component';
 import { MooVchartComponent } from './moo-vchart/moo-vchart.component';
 import { MooFieldStringComponent } from './moo-field/moo-field-string.component';
-
+import { MooFieldBooleanComponent } from './moo-field/moo-field-boolean.component';
+import { DataTablesModule } from 'angular-datatables';
 @NgModule({
     imports: [
         CommonModule,
         HttpClientModule,
         HttpModule,
-        FormsModule
+        FormsModule,
+        DataTablesModule
     ],
     declarations: [
         MooVformComponent,
@@ -23,7 +25,8 @@ import { MooFieldStringComponent } from './moo-field/moo-field-string.component'
         MooVlistComponent,
         MooVtableComponent,
         MooVchartComponent,
-        MooFieldStringComponent
+        MooFieldStringComponent,
+        MooFieldBooleanComponent
     ],
     exports: [
         HttpClientModule,
@@ -36,3 +39,4 @@ import { MooFieldStringComponent } from './moo-field/moo-field-string.component'
     ]
 })
 export class MooadminModule {}
+

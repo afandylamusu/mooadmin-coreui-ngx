@@ -1,52 +1,129 @@
 <div class="animated fadeIn">
+   
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <i class="fa fa-align-justify"></i> Simple Table
+                    <i class="fa fa-align-justify"></i>Registration Form
                 </div>
                 <div class="card-body">
-                    <moo-vtable #table></moo-vtable>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header">
-                    <i class="fa fa-align-justify"></i> Form
-                </div>
-                <div class="card-body">
-                    <moo-vform #form>
+                    <moo-vform #form [callback]="cbSubmit">
+                        <h4>Student Information</h4>
+                        <p></p>
                         <moo-field name="Name"></moo-field>
                         <moo-field name="Number"></moo-field>
-                        <!-- <moo-field name="Address"></moo-field>
+                        <moo-field name="Address"></moo-field>
+                        <moo-field name="Password"></moo-field>
                         <moo-field name="Email"></moo-field>
-                        <moo-field name="Feedback"></moo-field>   -->
+                        <moo-field name="Explanation"></moo-field>
+                         <h4>Internship information</h4>
+                         <p></p> 
+                        <moo-field name="Radio"></moo-field> 
+                        <moo-field name="Combobox"></moo-field>
+                        <moo-field name="Checkbox"></moo-field>  
+                       
                     </moo-vform>
+                    
                 </div>
             </div>
         </div>
     </div>
+    
 
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <i class="fa fa-align-justify"></i> Form
+                    <i class="fa fa-align-justify"></i> List Applier
                 </div>
                 <div class="card-body">
-
-                    <moo-vlist #list>
-                        <ng-template let-data>
-                            <div>
-                                {{data|json}}
-                            </div>
-                        </ng-template>
-                    </moo-vlist>
+                        <moo-vlist #list>
+                                <ng-template let-data>
+                                    <div>
+                                       
+                                <div class="card-deck">
+                                        <div class="card">
+                                                <div class="card-header">#{{data.id}}Applicants</div>
+                                                <img class="card-img-top" src="https://avatars1.githubusercontent.com/u/18459300?v=4" alt="Card image cap">
+                                                        <div class="card-body">
+                                                        <h4 class="card-title">{{data.name}}</h4>
+                                                  <p class="card-text">
+                                                
+                                                        Number : {{data.number}}<br>
+                                                        Address : {{data.address}}<br>
+                                                        Password : {{data.password}}<br>
+                                                        Email : {{data.email}}<br>
+                                                        Explanation : {{data.explanation}}<br>
+                                                        Position  : {{data.position}}<br>
+                                                        Total Month : {{data.totalMonth}} Months<br>
+                                                        Experience: {{data.agreement}}       
+                                                </p> 
+                                                </div>
+                                                <div class="card-footer">
+                                                        <p align="center">   <button align="center" class="btn btn-success" (click)="deleteContacts.bind(this)" >Detail</button>
+                                                        </p></div>
+                                              </div>
+                                              <div class="card">
+                                                    <div class="card-header">Applicants</div>
+                                                    <img class="card-img-top" src="https://avatars1.githubusercontent.com/u/18459300?v=4" alt="Card image cap">
+                                                            <div class="card-body">
+                                                            <h4 class="card-title">{{data.name}}</h4>
+                                                      <p class="card-text">
+                                                    
+                                                            Number : {{data.number}}<br>
+                                                            Address : {{data.address}}<br>
+                                                            Password : {{data.password}}<br>
+                                                            Email : {{data.email}}<br>
+                                                            Explanation : {{data.explanation}}<br>
+                                                            Position  : {{data.position}}<br>
+                                                            Total Month : {{data.totalMonth}} Months<br>
+                                                            Experience: {{data.agreement}}       
+                                                    </p> 
+                                                    </div>
+                                                    <div class="card-footer">
+                                                            <p align="center">   <button align="center" class="btn btn-success" (click)="deleteContacts.bind(this)" >Detail</button>
+                                                            </p></div>
+                                                  </div>
+                                    <div class="card " style="max-width: 20rem;">
+                                            <div class="card-header">Applicants</div>
+                                            <img class="card-img-top" src="https://avatars1.githubusercontent.com/u/18459300?v=4" alt="Card image cap">
+                                            <div class="card-body">
+                                              <h4 class="card-title">{{data.name}}</h4>
+                                              <p class="card-text">
+                                                    
+                                                    Number : {{data.number}}<br>
+                                                    Address : {{data.address}}<br>
+                                                    Password : {{data.password}}<br>
+                                                    Email : {{data.email}}<br>
+                                                    Explanation : {{data.explanation}}<br>
+                                                    Position  : {{data.position}}<br>
+                                                    Total Month : {{data.totalMonth}} Months<br>
+                                                    Experience: {{data.agreement}}       
+                                            </p>
+                                            </div>
+                                            <div class="card-footer">
+                                                 <p align="center">   <button align="center" class="btn btn-success" (click)="deleteContacts.bind(this)" >Detail</button>
+                                                 </p></div>
+                                          </div>
+                                        </div>
+                                        <p></p>
+                                    </div>
+                                </ng-template>
+                            </moo-vlist>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa fa-align-justify"></i>Applicant Table
+                </div>
+                <div class="card-body">
+                    <moo-vtable #table [callbackTable]="deleteContacts.bind(this)"></moo-vtable>
+                </div>
+            </div>
+        </div>
+    </div>

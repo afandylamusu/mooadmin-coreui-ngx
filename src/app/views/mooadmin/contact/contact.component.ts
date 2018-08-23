@@ -17,7 +17,7 @@ import { MooVlistComponent } from '../../../../lib/mooadmin-ngx/moo-vlist/moo-vl
 })
 export class ContactComponent implements OnInit {
 
-    constructor(private contactService: ContactService, private _parentRouter: Router) {
+    constructor(private contactService: ContactService, private parentRouter: Router) {
     }
 
     errorMessage: string;
@@ -29,19 +29,31 @@ export class ContactComponent implements OnInit {
 
     ngOnInit() {
         this.form.modelSchema = this.contactService.modelSchema;
-        this.table.setSchema(this.contactService.modelSchema);
+       this.table.setSchema(this.contactService.modelSchema);
         this.list.setSchema(this.contactService.modelSchema);
+        
     }
 
     ngAfterViewInit() {
         //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
         //Add 'implements AfterViewInit' to the class.
         this.getContacts();
+        console.log(this.list)
     }
 
-    public formSubmit(f: NgForm){
-        this.postContact({ id: null, name: f.value.name, phone: f.value.number });
-      window.location.reload();
+    public cbSubmit(f: NgForm){
+        this.postContact({ 
+                id: null, name: f.value.name, number: f.value.number, address: f.value.address, 
+                password:f.value.password, email:f.value.email, explanation:f.value.explanation, 
+                position:f.value.position, totalMonth:f.value.totalMonth, agreement:f.value.agreement });
+         window.location.reload();
+    }
+    public deleteContacts(data: any) {
+        this.contactService.delete(data.id).then(
+           res => {  
+
+                });
+        window.location.reload();
     }
 
     postContact(contact: Contact){

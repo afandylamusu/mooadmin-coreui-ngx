@@ -1,4 +1,4 @@
-<form #f="ngForm" (ngSubmit)="formSubmit(f)" class="form-horizontal">
+<form #f="ngForm" (ngSubmit)="f.valid && formSubmit(f)" class="form-horizontal">
     <ng-content></ng-content>
     <button class="btn btn-primary" >Submit</button>
 </form>

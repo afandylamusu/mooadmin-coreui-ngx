@@ -1,0 +1,23 @@
+<label for="{{_config.model}}">{{_config.label}}</label>
+                <div *ngIf="_config.inputType === 'combobox'" > 
+                <select name="{{_config.model}}" class="form-control" ngModel>
+                        <option value="" disabled selected>Select your option..</option>
+                        <option *ngFor="let index of _config.choices"  [ngValue]="index">
+                        {{ index }}
+                                </option>
+                </select>
+                </div>
+                <div *ngIf="_config.inputType === 'radio'" >
+                        <p *ngFor="let index of _config.choices">
+                                <input name="{{_config.model}}"  type="radio" value="{{index}}" [(ngModel)]="value" > {{index}}
+                                </p>
+                </div>
+                <div *ngIf="_config.inputType === 'checkbox'" >
+                        <p *ngFor="let index of _config.choices">
+                                <input name="{{_config.model}}"   type="checkbox" value="{{index}}" [(ngModel)]="value" > {{index}}
+                        </p>
+                </div>
+        <div *ngIf="field.form.ngForm.submitted && model.invalid" class="invalid">
+        <div *ngIf="model.errors.required"><p style="color: red">{{_errorMessage.required}}</p></div>
+        </div>
+

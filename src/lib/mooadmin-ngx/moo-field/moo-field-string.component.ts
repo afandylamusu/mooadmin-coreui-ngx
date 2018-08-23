@@ -5,19 +5,19 @@ import { NgModel, NgForm } from '@angular/forms';
 
 
 @Component({
-    // tslint:disable-next-line:component-selector
+    // tslintisable-next-line:component-selector
     selector: 'moo-field-string',
     templateUrl: './moo-field-string.component.html'
 })
 export class MooFieldStringComponent implements OnInit {
 
-    // tslint:disable-next-line:no-input-rename
+    // tslintisable-next-line:no-input-rename
     @ViewChild(NgModel)
     model: NgModel;
 
     value: string;
 
-    // tslint:disable-next-line:no-input-rename
+    // tslintisable-next-line:no-input-rename
     private _config: StringField;
 
 
@@ -38,7 +38,7 @@ export class MooFieldStringComponent implements OnInit {
         this._hasError = false;
     }
 
-    // tslint:disable-next-line:use-life-cycle-interface
+    // tslintisable-next-line:use-life-cycle-interface
     ngAfterViewInit() {
         // Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
         // Add 'implements AfterViewInit' to the class.

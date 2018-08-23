@@ -3,7 +3,7 @@ import { MooVformComponent } from '../moo-vform/moo-vform.component';
 import { Field } from '../field-types';
 
 @Component({
-    // tslint:disable-next-line:component-selector
+    // tslintisable-next-line:component-selector
     selector: 'moo-field',
     templateUrl: './moo-field.component.html',
     styleUrls: ['./moo-field.component.scss']
@@ -11,15 +11,21 @@ import { Field } from '../field-types';
 export class MooFieldComponent implements OnInit {
     config: Field;
 
-    // tslint:disable-next-line:no-input-rename
+    // tslintisable-next-line:no-input-rename
     @Input('name') name: string;
 
     private _stringFieldInputTypes: string[] = ['text', 'number', 'textarea', 'email', 'password'];
+    private _boolFieldInputTypes: string[] = ['combobox', 'checkbox', 'radio'];
 
+    get isBoolField():boolean{
+        return this._boolFieldInputTypes.findIndex (x => x === this.config.inputType) >= 0;
+    }
+    
     get isStringField(): boolean {
-        return this._stringFieldInputTypes.findIndex(x => x === this.config.inputType) >= 0;
+        return this._stringFieldInputTypes.findIndex (x => x === this.config.inputType) >= 0;
     }
 
+    
     constructor(public form: MooVformComponent) {
 
     }

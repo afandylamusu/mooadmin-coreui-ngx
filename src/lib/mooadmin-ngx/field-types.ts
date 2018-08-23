@@ -1,11 +1,12 @@
-
 export interface Field {
     inputType: string;
     /**
      * a property name of model api
-     */
+     */   
+   
     model: string;
     required: boolean;
+    
 }
 
 export interface StringField extends Field {
@@ -20,6 +21,8 @@ export interface StringField extends Field {
 
 export interface BooleanField extends Field {
     checked: true;
+    choices: any;
+    label:string;
 }
 
 export interface HiddenField extends Field {
@@ -36,7 +39,7 @@ export class Fields {
         return c as HiddenField;
     }
 
-    static radioField(c: Partial<BooleanField>): BooleanField {
+    static boolField(c: Partial<BooleanField>): BooleanField {
         return c as BooleanField;
     }
 }
