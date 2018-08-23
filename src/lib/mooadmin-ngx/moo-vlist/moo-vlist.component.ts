@@ -21,9 +21,9 @@ export class MooVlistComponent implements OnInit {
   }
 
 
-  private _dataSource$: Observable<any>;
+  _dataSource$: Observable<any>;
   private _modelSchema: Dictionary<Field>;
-  
+
   constructor() { }
 
   ngOnInit() {

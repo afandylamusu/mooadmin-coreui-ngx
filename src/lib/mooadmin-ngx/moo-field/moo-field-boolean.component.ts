@@ -18,12 +18,12 @@ export class MooFieldBooleanComponent implements OnInit {
     value: string;
 
     // tslint:disable-next-line:no-input-rename
-    private _config: BooleanField;
-    
+    _config: BooleanField;
+
     private _hasError: boolean;
     private _errorMessage: any = {
         required: 'Field is required',
-       
+
     };
 
      get isComboBox(): boolean {

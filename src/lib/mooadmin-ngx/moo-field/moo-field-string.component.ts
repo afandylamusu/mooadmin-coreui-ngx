@@ -18,7 +18,7 @@ export class MooFieldStringComponent implements OnInit {
     value: string;
 
     // tslintisable-next-line:no-input-rename
-    private _config: StringField;
+    _config: StringField;
 
 
     private _hasError: boolean;
