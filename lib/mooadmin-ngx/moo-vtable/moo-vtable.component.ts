@@ -1,9 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Dictionary } from '../dictionary';
 import { Field } from '../field-types';
-import { Model } from '../active-record';
 import { Observable } from 'rxjs';
-import { ContactService } from '../../../services/contact.service';
 
 @Component({
     // tslintisable-next-line:component-selector

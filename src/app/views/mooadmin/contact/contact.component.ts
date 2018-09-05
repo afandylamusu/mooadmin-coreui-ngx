@@ -2,11 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ContactService } from '../../../../services/contact.service';
 import { Router } from '@angular/router';
 import { Contact } from '../../../../services/contact';
-import { MooVformComponent } from '../../../../lib/mooadmin-ngx/moo-vform/moo-vform.component';
-import { MooVtableComponent } from '../../../../lib/mooadmin-ngx/moo-vtable/moo-vtable.component';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { MooVlistComponent } from '../../../../lib/mooadmin-ngx/moo-vlist/moo-vlist.component';
+import { MooVformComponent, MooVtableComponent, MooVlistComponent } from '../../../../../lib/mooadmin-ngx';
 
 
 @Component({
@@ -29,43 +27,42 @@ export class ContactComponent implements OnInit {
 
     ngOnInit() {
         this.form.modelSchema = this.contactService.modelSchema;
-       this.table.setSchema(this.contactService.modelSchema);
+        this.table.setSchema(this.contactService.modelSchema);
         this.list.setSchema(this.contactService.modelSchema);
-        
+
     }
 
+    // tslint:disable-next-line:use-life-cycle-interface
     ngAfterViewInit() {
-        //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
-        //Add 'implements AfterViewInit' to the class.
+        // Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+        // Add 'implements AfterViewInit' to the class.
         this.getContacts();
-        console.log(this.list)
+        console.log(this.list);
     }
 
-    public cbSubmit(f: NgForm){
-        this.postContact({ 
-                id: null, name: f.value.name, number: f.value.number, address: f.value.address, 
-                password:f.value.password, email:f.value.email, explanation:f.value.explanation, 
-                position:f.value.position, totalMonth:f.value.totalMonth, agreement:f.value.agreement });
-         window.location.reload();
+    cbSubmit(f: NgForm) {
+        this.postContact({
+            id: null, name: f.value.name, number: f.value.number, address: f.value.address,
+            password: f.value.password, email: f.value.email, explanation: f.value.explanation,
+            position: f.value.position, totalMonth: f.value.totalMonth, agreement: f.value.agreement
+        });
     }
-    public deleteContacts(data: any) {
+
+    deleteContacts(data: any) {
         this.contactService.delete(data.id).then(
-           res => {  
+            res => {
 
-                });
-        window.location.reload();
+            });
     }
 
-    postContact(contact: Contact){
+    postContact(contact: Contact) {
         this.contactService.insert(contact).then(
-          res => 
-          {
-  
-          }
-       ).catch();
-       window.location.reload();
-      }
-  
+            res => {
+
+            }
+        ).catch();
+    }
+
 
     getContacts() {
         this.contacts$ = this.contactService.findAll();

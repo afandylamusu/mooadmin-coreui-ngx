@@ -1,4 +1,4 @@
-import { Model } from '../lib/mooadmin-ngx/active-record';
+import { Model } from '../../lib/mooadmin-ngx';
 
 export interface Food extends Model {
     Id: number;

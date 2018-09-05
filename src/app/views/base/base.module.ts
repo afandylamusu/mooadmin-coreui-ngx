@@ -45,8 +45,8 @@ import { TooltipsComponent } from './tooltips.component';
 
 // Components Routing
 import { BaseRoutingModule } from './base-routing.module';
+import { MooadminModule } from '../../../../lib/mooadmin-ngx';
 
-import { MooadminModule } from '../../../lib/mooadmin-ngx/mooadmin.module';
 
 @NgModule({
   imports: [

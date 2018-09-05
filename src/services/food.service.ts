@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Food } from './food';
-import { ActiveRecord, ApiConfig } from '../lib/mooadmin-ngx/active-record';
+import { ActiveRecord, ApiConfig } from '../../lib/mooadmin-ngx';
 import { Http } from '@angular/http';
-import { Fields } from '../lib/mooadmin-ngx/field-types';
+import { Fields } from '../../lib/mooadmin-ngx';
 import { baseDirectiveCreate } from '../../node_modules/@angular/core/src/render3/instructions';
 
 @Injectable()

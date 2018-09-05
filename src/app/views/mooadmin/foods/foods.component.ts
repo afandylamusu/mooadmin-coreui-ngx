@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FoodService } from '../../../../services/food.service';
 import { Food } from '../../../../services/food';
-import { MooVformComponent } from '../../../../lib/mooadmin-ngx/moo-vform/moo-vform.component';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
+import { MooVformComponent } from '../../../../../lib/mooadmin-ngx';
 
 @Component({
     selector: 'app-foods',
